@@ -1,24 +1,14 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <router-view />
+    <router-view/>
     <vue-snotify />
   </div>
 </template>
 
 <script>
-
 export default {
-  name: 'app',
-  methods: {
-    displayNotification () {
-      this.$snotify.simple({
-        body: 'My Notification Body',
-        title: 'Notification Title',
-        config: {}
-      })
-    }
-  }
+  name: 'app'
 }
 </script>
 

@@ -3,34 +3,31 @@
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
     <ul>
-      <li><a href="#">Core Docs</a></li>
-      <li><a href="#">Forum</a></li>
-      <li><a href="#"Community Chat</a></li>
-      <li><a href="#">Twitter</a></li>
+      <li><a href="#" v-on:click="notify">Core Docs</a></li>
+      <li><a href="#" v-on:click="notify">Forum</a></li>
+      <li><a href="#" v-on:click="notify">Community Chat</a></li>
+      <li><a href="#" v-on:click="notify">Twitter</a></li>
     </ul>
   </div>
 </template>
 
 <script>
-
-import $ from 'jquery'
-
 export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Welcome to Netlify TEST App'
+      msg: 'Welcome to Netlify Vue.js App'
     }
   },
   mounted () {
     var _self = this
-
     _self.$snotify.success('Still works Example body content', 'do it do it do it')
-    var links = $('a')
-    console.log(links)
-    $('a').click(function (s) {
-      _self.$snotify.success('Still works Example body content', s.target.innerText)
-    })
+  },
+  methods: {
+    notify (event) {
+      var _self = this
+      _self.$snotify.success('Still works Example body content', 'Hello ' + event.target.innerText + '!')
+    }
   }
 }
 </script>

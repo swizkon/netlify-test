@@ -1,4 +1,4 @@
-# vuesnotify
+# netlify-test
 
 > A Vue.js project
 
