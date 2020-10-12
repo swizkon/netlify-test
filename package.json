@@ -11,8 +11,10 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "rxjs": "^6.6.3",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
+    "vue-rx": "^6.2.0",
     "vue-snotify": "^3.2.1"
   },
   "devDependencies": {

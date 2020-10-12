@@ -2,9 +2,6 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
-
-     ”Var dag är som en gyllne skål, till brädden fylld med vin.”
-– Evelyn Lindström
     <ul>
       <li><a href="#" v-on:click="notify">Core Docs</a></li>
       <li><a href="#" v-on:click="notify">Forum</a></li>
@@ -15,23 +12,39 @@
 </template>
 
 <script>
+
+import { Subject, interval } from 'rxjs'
+// import { map, startWith, scan } from 'rxjs/operators'
+// import {interval} from 'vue-rx'
+
 export default {
-  name: 'HelloWorld',
+  name: 'Wallet',
   data () {
     return {
-      msg: 'Welcome to Netlify Vue.js App'
+      msg: 'da Wallet',
+      feed: null,
+      sub: null
     }
   },
-  mounted () {
-    console.log('mounted')
+  beforeMount () {
     var _self = this
-    _self.$snotify.success('Still works Example body content', 'do it do it do it')
+    _self.feed = interval(1000).subscribe(v => _self.msg = 'da Wallet ' + v)
+    _self.sub = new Subject()
+  },
+  mounted () {
+    var _self = this
+    // _self.feed = interval(1000).subscribe(v => _self.msg = 'da Wallet ' + v)
+    // _self.sub = new Subject()
+    console.log('Wallet mounted')
+    _self.$snotify.success('Still works Example body content', _self.msg)
   },
   destroyed () {
-    console.log('destroyed')
+    console.log('Wallet destroyed')
   },
   beforeDestroy () {
-    console.log('beforeDestroy')
+    this.msg = null
+    this.feed.unsubscribe()
+    console.log('Wallet beforeDestroy')
   },
   methods: {
     notify (event) {
