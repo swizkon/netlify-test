@@ -28,7 +28,9 @@ export default {
   },
   beforeMount () {
     var _self = this
-    _self.feed = interval(1000).subscribe(v => _self.msg = 'da Wallet ' + v)
+    _self.feed = interval(1000).subscribe(v => {
+        _self.msg = 'da Wallet ' + v
+    })
     _self.sub = new Subject()
   },
   mounted () {

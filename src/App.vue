@@ -3,6 +3,12 @@
     <img src="./assets/logo.png">
     <router-view/>
     <vue-snotify />
+    <div>
+      Some links:
+      https://github.com/vuejs/vue-rx
+
+      https://www.learnrxjs.io/learn-rxjs/operators/creation/interval
+    </div>
   </div>
 </template>
 
